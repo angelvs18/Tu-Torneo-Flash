@@ -1,0 +1,19 @@
+{
+  "@@locale": "es",
+  "appTitle": "Tu Torneo Flash",
+  "homeTitle": "Encuentra tu torneo",
+  "homeSearchHint": "Nombre o código del torneo",
+  "homeScanQr": "Escanear QR",
+  "homeOrganizerCta": "Soy organizador",
+  "loginTitle": "Iniciar sesión",
+  "myTournamentsTitle": "Mis torneos",
+  "tournamentCodeTitle": "Torneo {code}",
+  "@tournamentCodeTitle": {
+    "placeholders": {
+      "code": { "type": "String" }
+    }
+  },
+  "comingSoon": "Próximamente",
+  "notFoundTitle": "Página no encontrada",
+  "goHome": "Ir al inicio"
+}

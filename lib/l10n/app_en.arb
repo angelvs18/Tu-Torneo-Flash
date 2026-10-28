@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "appTitle": "Tu Torneo Flash",
+  "homeTitle": "Find your tournament",
+  "homeSearchHint": "Tournament name or code",
+  "homeScanQr": "Scan QR",
+  "homeOrganizerCta": "I'm an organizer",
+  "loginTitle": "Sign in",
+  "myTournamentsTitle": "My tournaments",
+  "tournamentCodeTitle": "Tournament {code}",
+  "comingSoon": "Coming soon",
+  "notFoundTitle": "Page not found",
+  "goHome": "Go home"
+}
