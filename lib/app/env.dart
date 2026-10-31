@@ -7,6 +7,14 @@ abstract final class Env {
     'SUPABASE_PUBLISHABLE_KEY',
   );
 
+  /// Optional. Without them the Google button is hidden.
+  static const googleWebClientId = String.fromEnvironment(
+    'GOOGLE_WEB_CLIENT_ID',
+  );
+  static const googleIosClientId = String.fromEnvironment(
+    'GOOGLE_IOS_CLIENT_ID',
+  );
+
   static bool get isConfigured =>
       supabaseUrl.isNotEmpty && supabasePublishableKey.isNotEmpty;
 }
