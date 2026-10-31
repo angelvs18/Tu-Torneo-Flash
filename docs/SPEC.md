@@ -485,3 +485,9 @@ Uso:
 - Ante una ambigüedad de reglas deportivas, usar los defaults de §5 y dejar `// TODO(product):`.
 - Textos de UI en archivos ARB.
 - **No hardcodear** nombres como "Temporada regular", "Playoffs" o "Copa Redención" en la lógica: son nombres libres. Solo pueden aparecer como sugerencias en las plantillas rápidas.
+## Supabase
+- Todo cambio de esquema se escribe primero como archivo en supabase/migrations/
+  y después se aplica con la herramienta apply_migration del MCP. Nunca uses execute_sql para crear o alterar tablas.
+- Usa execute_sql solo para consultas de lectura o pruebas.
+- Pide confirmación antes de cualquier DROP, DELETE o TRUNCATE.
+- Después de cada migración, corre los advisors de seguridad y verifica que todas las tablas tengan RLS.
