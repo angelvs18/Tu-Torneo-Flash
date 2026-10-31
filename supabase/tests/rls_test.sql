@@ -3,7 +3,7 @@ begin;
 create extension if not exists pgtap with schema extensions;
 set search_path = public, extensions;
 
-select plan(32);
+select plan(34);
 
 -- ===== Fixtures (as postgres, bypassing RLS) =====
 insert into auth.users (id, email) values
@@ -48,12 +48,26 @@ select is(
   'a profile is created for every new auth user');
 
 select ok(
-  (select bool_and(public.generate_public_code() ~ '^[2-9A-HJ-NP-Z]{6}$')
+  (select bool_and(private.generate_public_code() ~ '^[2-9A-HJ-NP-Z]{6}$')
      from generate_series(1, 200)),
   'generate_public_code uses 6 chars without 0/O/1/I');
 
 select hasnt_column('public', 'public_players', 'birth_date',
   'public_players never exposes birth_date');
+
+-- get_tournament_by_code is the only security definer RPC meant for clients.
+select is(
+  (select array_agg(p.proname::text order by p.proname) from pg_proc p
+    where p.pronamespace = 'public'::regnamespace and p.prosecdef
+      and has_function_privilege('anon', p.oid, 'execute')),
+  array['get_tournament_by_code'],
+  'anon can only execute get_tournament_by_code among security definer functions');
+select is(
+  (select array_agg(p.proname::text order by p.proname) from pg_proc p
+    where p.pronamespace = 'public'::regnamespace and p.prosecdef
+      and has_function_privilege('authenticated', p.oid, 'execute')),
+  array['get_tournament_by_code'],
+  'authenticated can only execute get_tournament_by_code among security definer functions');
 
 -- ===== anon =====
 set local role anon;
