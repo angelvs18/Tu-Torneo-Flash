@@ -1,31 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
-import 'package:tu_torneo_flash/app/app.dart';
 import 'package:tu_torneo_flash/app/router.dart';
 
+import '../helpers/pump_app.dart';
+
 void main() {
-  Future<ProviderContainer> pumpApp(
-    WidgetTester tester, {
-    Locale locale = const Locale('es', 'MX'),
-  }) async {
-    tester.platformDispatcher.localesTestValue = [locale];
-    addTearDown(tester.platformDispatcher.clearLocalesTestValue);
-    final container = ProviderContainer();
-    addTearDown(container.dispose);
-    await tester.pumpWidget(
-      UncontrolledProviderScope(
-        container: container,
-        child: const TorneoFlashApp(),
-      ),
-    );
-    await tester.pumpAndSettle();
-    return container;
-  }
-
-  GoRouter routerOf(ProviderContainer c) => c.read(routerProvider);
-
   testWidgets('starts on the spectator home, in Spanish', (tester) async {
     await pumpApp(tester);
 
@@ -68,13 +47,19 @@ void main() {
     expect(find.text('Torneo ABC123'), findsOneWidget);
   });
 
-  testWidgets('organizer button goes to login', (tester) async {
-    await pumpApp(tester);
+  testWidgets('organizer button asks a signed-out user to log in', (
+    tester,
+  ) async {
+    final container = await pumpApp(tester);
 
     await tester.tap(find.text('Soy organizador'));
     await tester.pumpAndSettle();
 
     expect(find.text('Iniciar sesión'), findsOneWidget);
+    expect(
+      routerOf(container).routerDelegate.currentConfiguration.uri.toString(),
+      '/login?from=%2Fmy-tournaments',
+    );
   });
 
   testWidgets('unknown routes show the not-found screen', (tester) async {
