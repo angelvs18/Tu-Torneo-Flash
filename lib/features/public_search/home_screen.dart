@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           FilledButton(
-            onPressed: () => context.go(AppRoutes.login),
+            onPressed: () => context.go(AppRoutes.myTournaments),
             child: Text(l10n.homeOrganizerCta),
           ),
         ],

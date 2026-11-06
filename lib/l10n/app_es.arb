@@ -15,5 +15,62 @@
   },
   "comingSoon": "Próximamente",
   "notFoundTitle": "Página no encontrada",
-  "goHome": "Ir al inicio"
+  "goHome": "Ir al inicio",
+
+  "emailLabel": "Correo electrónico",
+  "passwordLabel": "Contraseña",
+  "newPasswordLabel": "Nueva contraseña",
+  "confirmPasswordLabel": "Confirma la contraseña",
+  "displayNameLabel": "Tu nombre",
+  "displayNameHint": "Así te verán tus coorganizadores",
+  "loginSubmit": "Entrar",
+  "loginForgotPassword": "¿Olvidaste tu contraseña?",
+  "loginNoAccount": "¿No tienes cuenta? Crea una",
+  "loginOr": "o",
+  "loginWithGoogle": "Continuar con Google",
+  "loginWithApple": "Continuar con Apple",
+  "signUpTitle": "Crear cuenta",
+  "signUpSubmit": "Crear cuenta",
+  "signUpHaveAccount": "¿Ya tienes cuenta? Inicia sesión",
+  "signUpCheckEmail": "Te enviamos un correo para confirmar tu cuenta. Ábrelo desde este teléfono.",
+  "forgotPasswordTitle": "Recuperar contraseña",
+  "forgotPasswordBody": "Escribe tu correo y te enviaremos un enlace para crear una contraseña nueva.",
+  "forgotPasswordSubmit": "Enviar enlace",
+  "forgotPasswordSent": "Si existe una cuenta con ese correo, te llegará el enlace en unos minutos.",
+  "resetPasswordTitle": "Nueva contraseña",
+  "resetPasswordSubmit": "Guardar contraseña",
+  "completeProfileTitle": "Completa tu perfil",
+  "completeProfileBody": "Antes de crear torneos, dinos cómo te llamas.",
+  "completeProfileSubmit": "Continuar",
+  "profileTitle": "Mi perfil",
+  "profileSave": "Guardar",
+  "profileSaved": "Perfil actualizado",
+  "profileChangePhoto": "Cambiar foto",
+  "profileSignOut": "Cerrar sesión",
+  "profileTooltip": "Mi perfil",
+
+  "errorRequired": "Este campo es obligatorio",
+  "errorInvalidEmail": "Escribe un correo válido",
+  "errorPasswordTooShort": "Usa al menos {min} caracteres",
+  "@errorPasswordTooShort": {
+    "placeholders": {
+      "min": { "type": "int" }
+    }
+  },
+  "errorPasswordsDontMatch": "Las contraseñas no coinciden",
+  "errorTooLong": "Máximo {max} caracteres",
+  "@errorTooLong": {
+    "placeholders": {
+      "max": { "type": "int" }
+    }
+  },
+  "authErrorInvalidCredentials": "Correo o contraseña incorrectos",
+  "authErrorEmailInUse": "Ya existe una cuenta con ese correo",
+  "authErrorWeakPassword": "La contraseña es muy débil; prueba con una más larga",
+  "authErrorEmailNotConfirmed": "Confirma tu correo antes de entrar",
+  "authErrorSamePassword": "La nueva contraseña debe ser distinta a la anterior",
+  "authErrorRateLimited": "Demasiados intentos. Espera unos minutos.",
+  "authErrorNetwork": "Sin conexión. Revisa tu internet e inténtalo de nuevo.",
+  "authErrorUnknown": "Algo salió mal. Inténtalo de nuevo.",
+  "photoUploadError": "No se pudo subir la foto. Inténtalo de nuevo."
 }
